@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    background-image: url('cover.jpg');
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin-right: 20px;
+    border: #e60a0a;
+}
+th, td {
+    border: 1px solid #1f1e1e;
+    padding: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:hover td {
+    background-color: #f1f1f1;
+}
+/* Calendar and Clock styles */
+.sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: #e98f8f;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.calendar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.calendar h2 {
+    margin: 0;
+}
+.day {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 2px;
+    border: 1px solid #e60a0a;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.day:hover {
+    background-color: #bae4bb;
+    color: white;
+}
+.today {
+    background-color: #4CAF50;
+    color: white;
+}
+.clock {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 190px;
+    background-color: #e98f8f;
+}
