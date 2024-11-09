@@ -1,74 +1,186 @@
+/* Main Body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    background-size: cover;
     margin: 0;
     padding: 20px;
-    background-image: url('cover.jpg');
+    color: #ecf0f1;
 }
+
+/* Header */
+header {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 12px;
+}
+header:hover {
+    background-color: #16a085; /* Changes header background on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+
+.university-info h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.university-info p,
+.university-info h2,
+.university-info h3 {
+    margin: 5px 0;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+h3 {
+    font-size: 1em;
+    font-weight: normal;
+    color: #ddd;
+}
+
+/* Layout Container */
 .container {
     display: flex;
     justify-content: space-between;
-}
-table {
-    border-collapse: collapse;
-    width: 70%;
-    margin-right: 20px;
-    border: #e60a0a;
-}
-th, td {
-    border: 1px solid #1f1e1e;
-    padding: 8px;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-tr:hover td {
-    background-color: #f1f1f1;
-}
-/* Calendar and Clock styles */
-.sidebar {
-    width: 25%;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
-    background-color: #e98f8f;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.calendar {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.calendar h2 {
-    margin: 0;
-}
-.day {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    margin: 2px;
-    border: 1px solid #e60a0a;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-.day:hover {
-    background-color: #bae4bb;
-    color: white;
-}
-.today {
-    background-color: #4CAF50;
-    color: white;
-}
-.clock {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Table Styles */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+table:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    border: 1px solid #16a085;
+    padding: 12px 16px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+th {
+    background-color: #1abc9c;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) td {
+    background-color: #34495e;
+}
+
+tr:hover td {
+    background-color: #16a085;
+    color: white;
+    cursor: pointer;
+}
+
+/* Sidebar (Calendar and Clock) */
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    background-color: #1e2a3a;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Calendar Styles */
+.calendar {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.calendar h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #ecf0f1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.day {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin: 6px;
+    border: 2px solid #16a085;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    color: #ecf0f1;
+}
+
+.day:hover {
+    background-color: #16a085;
+    color: white;
+    transform: scale(1.2);
+}
+
+.today {
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+}
+
+/* Clock */
+.clock {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+    color: #ecf0f1;
+    font-weight: bold;
+}
+
+/* Footer */
 footer {
     text-align: center;
-    margin-top: 190px;
-    background-color: #e98f8f;
+    margin-top: 50px;
+    padding: 18px 0;
+    background-color: #1abc9c;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+footer:hover {
+    background-color: #16a085;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    table, .sidebar {
+        width: 100%;
+        margin: 0;
+    }
+
+    .sidebar {
+        margin-top: 20px;
+    }
 }
