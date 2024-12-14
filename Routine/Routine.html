@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timetable</title>
     <link rel="stylesheet" href="Routine.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     
 </head>
 <body>
@@ -16,10 +19,12 @@
             <h3>Class Routine</h3>
         </div>
     </header>
+    
+
     <div class="container">
        
 
-        <table>
+        <table id="routine-table">
             <thead>
                 <tr>
                     <th>Day</th>
@@ -40,7 +45,7 @@
                 <!-- Saturday -->
                
                 <tr>
-                    <td rowspan="6">Saturday</td>
+                    <td rowspan="6" >Saturday</td>
                     <tr>
                    
                         <td>2019-2020</td>
@@ -160,7 +165,7 @@
 
 
                 <tr>
-                    <td rowspan="7">Monday</td>
+                    <td rowspan="7" >Monday</td>
                     <td rowspan="2">2019-2020</td>
                     <td colspan="2" rowspan="2"></td>
                     <td colspan="2" rowspan="1">ICTE 4462 (RH)<br> Sessional G1 Room 4701</td>
@@ -223,7 +228,7 @@
 
                 <!-- Tuesday -->
                 <tr>
-                    <td rowspan="5">Tuesday</td>
+                    <td rowspan="5" >Tuesday</td>
                     <td>2019-2020</td>
                     <td colspan="2" rowspan="1">ICTE 4439 (MDK) <br>Tutorial Room 2001</td>
                     <td colspan="2" rowspan="1"></td>
@@ -274,7 +279,7 @@
                 </tr>
                 <!-- Wednesday -->
                 <tr>
-                    <td rowspan="7">Wednesday</td>
+                    <td rowspan="7" >Wednesday</td>
                     <td  rowspan="2">2019-2020</td>
                     <td colspan="2" rowspan="2"></td>
                     <td colspan="2" rowspan="2">EDU 4413 (ZF) <br> Tutorial 2001</td>
@@ -283,9 +288,9 @@
                     <td colspan="2" rowspan="2"> ICT 4459 (AR) <br>Tutorial Room 2001</td>
                 </tr>
                 <tr>
-<td colspan="2" rowspan="1">ICT 4460 (AR) <br>  Sessional G2 Room 4701
+                <td colspan="2" rowspan="1">ICT 4460 (AR) <br>  Sessional G2 Room 4701
     
-</td>
+                </td>
                 </tr>
                 <tr>
                    
@@ -330,31 +335,59 @@
                 </tr>
                 <!-- Thursday -->
                 <tr>
-                    <td rowspan="1">Thursday</td>
+                    <td rowspan="1" >Thursday</td>
                   
                     <td colspan="10"></td>
                 </tr>
             </tbody>
         </table>
+        
 
         <!-- Sidebar for Calendar and Clock -->
         <div class="sidebar">
+            <div id="greeting"></div>
             <div class="calendar">
                 <h2>Calendar</h2>
                 <h3 id="monthYear"></h3>
                 <div id="daysContainer"></div>
             </div>
             <div class="clock" id="clock"></div>
+
+    
+            <h2 style="text-align: center; margin-top :50px;">To-Do List</h2>
+            <input type="text" id="taskInput" style="margin-left:30px" placeholder="Enter a task">
+            <button id="addTaskBtn" class="btn2">Add Task</button>
+            <ul id="taskList"></ul>
+           
+
+
+
+            <button id="savePdfBtn" style="margin-top: 20px; margin-left:40px" class="btn">Save Full Page</button>
+            <button id="logoutBtn" style="margin-top: 20px; margin-left:70px" class="btn1">Logout</button>
+
         </div>
-        
+       
     </div>
+    
+
     <footer>
         <b>Md Saiful Islam</b><br>
         
         &copy; 2024
     </footer>
     <script src="Routine.js">
-       
+        document.getElementById('savePdfBtn').addEventListener('click', function () {
+           
+            window.print();
+        });
+
+
+        const table = document.getElementById("routine-table");
+
+
     </script>
+   
+    
+    
 </body>
 </html>

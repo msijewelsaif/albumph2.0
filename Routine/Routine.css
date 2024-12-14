@@ -10,7 +10,7 @@ body {
 
 /* Header */
 header {
-    background-color: #003167;
+    background-color: #0056b3;
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -183,4 +183,64 @@ footer:hover {
     .sidebar {
         margin-top: 20px;
     }
+}
+#savePdfBtn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Top and bottom padding, left and right padding */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+    margin-top: 20px; /* Add margin top */
+}
+
+/* Hover effect */
+#savePdfBtn:hover {
+    background-color: #45a049; /* Darker green when hovered */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Focus effect for accessibility */
+#savePdfBtn:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.6); /* Blue focus outline */
+}
+#greeting {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fffefe;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.btn1{
+    background-color: #f30000; /* Green background */
+    color: white; /* White text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Top and bottom padding, left and right padding */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+    margin-top: 20px;
+    margin-left: 50px; /* Add margin top */
+
+}
+.completed {
+    text-decoration: line-through;
+    color: rgb(1, 255, 52);
+}
+
+.btn2{
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    font-size: 16px; /* Font size */
+    padding: 10px 20px; /* Top and bottom padding, left and right padding */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color and transform */
+    margin-top: 20px;
+    margin-left: 60px; /* Add margin top */
 }
