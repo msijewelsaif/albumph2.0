@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, User!</h1>
+    <h2>Available Recipes</h2>
+    <div id="recipe-list" class="recipe-list"></div>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Fetch recipes and display
+    async function fetchRecipes() {
+      const res = await fetch('/api/recipes');
+      const recipes = await res.json();
+      const recipeList = document.getElementById('recipe-list');
+
+      recipeList.innerHTML = recipes.map(recipe => `
+        <div class="recipe">
+          <h3>${recipe.title}</h3>
+          <img src="/public/images/${recipe.photo}" alt="${recipe.title}" style="width:100px;height:100px;" />
+          <p>${recipe.description}</p>
+        </div>
+      `).join('');
+    }
+
+    // Logout function
+    function logout() {
+      window.location.href = '/views/login.html';
+    }
+
+    // Load recipes on page load
+    fetchRecipes();
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, Admin!</h1>
+    <h2>Manage Recipes</h2>
+    <button onclick="showAddRecipeForm()">Add New Recipe</button>
+    <div id="recipe-list" class="recipe-list"></div>
+    <div id="recipe-form-container" style="display: none;">
+      <h2>Add Recipe</h2>
+      <form id="recipe-form">
+        <input type="text" id="title" placeholder="Recipe Title" required />
+        <textarea id="description" placeholder="Recipe Description" required></textarea>
+        <input type="file" id="photo" required />
+        <button type="submit">Add Recipe</button>
+        <button type="button" onclick="hideAddRecipeForm()">Cancel</button>
+      </form>
+    </div>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Fetch recipes and display
+    async function fetchRecipes() {
+      const res = await fetch('/api/recipes');
+      const recipes = await res.json();
+      const recipeList = document.getElementById('recipe-list');
+
+      recipeList.innerHTML = recipes.map(recipe => `
+        <div class="recipe">
+          <h3>${recipe.title}</h3>
+          <img src="/public/images/${recipe.photo}" alt="${recipe.title}" style="width:100px;height:100px;" />
+          <p>${recipe.description}</p>
+          <button onclick="deleteRecipe(${recipe.id})">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    // Show Add Recipe Form
+    function showAddRecipeForm() {
+      document.getElementById('recipe-form-container').style.display = 'block';
+    }
+
+    // Hide Add Recipe Form
+    function hideAddRecipeForm() {
+      document.getElementById('recipe-form-container').style.display = 'none';
+    }
+
+    // Add new recipe
+    document.getElementById('recipe-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const photo = document.getElementById('photo').files[0];
+
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('description', description);
+      formData.append('photo', photo);
+
+      const res = await fetch('/api/recipes', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (res.ok) {
+        alert('Recipe added successfully!');
+        fetchRecipes();
+        hideAddRecipeForm();
+      } else {
+        alert('Failed to add recipe.');
+      }
+    });
+
+    // Delete recipe
+    async function deleteRecipe(recipeId) {
+      const res = await fetch(`/api/recipes/${recipeId}`, {
+        method: 'DELETE',
+      });
+
+      if (res.ok) {
+        alert('Recipe deleted successfully!');
+        fetchRecipes();
+      } else {
+        alert('Failed to delete recipe.');
+      }
+    }
+
+    // Logout function
+    function logout() {
+      window.location.href = '/views/login.html';
+    }
+
+    // Load recipes on page load
+    fetchRecipes();
+  </script>
+</body>
+</html>
